@@ -20,7 +20,6 @@ module.exports = {
         wave: 'wave 1.2s linear infinite',
         slowfade: 'slowfade 2.2s ease-in-out',
         typing: 'typing 4.8s steps(40, end) , blinkCaret .75s step-end infinite',
-        // blinkCaret: 'blinkCaret .75s step-end infinite',
       },
       keyframes: {
         slowfade: {
