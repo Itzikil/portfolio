@@ -13,7 +13,7 @@ import web3 from '../public/web3.png'
 import web4 from '../public/web4.png'
 import web5 from '../public/web5.png'
 import web6 from '../public/web6.png'
-// import resume from '../public/cv-issac.pdf'
+// import resume from '../public/cv.pdf'
 import { useState } from 'react'
 
 
@@ -45,7 +45,7 @@ export default function Home() {
           {openCv &&
             <div className='animate-slidedown'>
               <a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8' target="_blank" href="/cv.pdf">Open in new tab</a>
-              <iframe src="/cv.pdf" className='min-w-full h-96 rounded-lg shadow-lg'></iframe>
+              <iframe src="cv.pdf" className='min-w-full h-96 rounded-lg shadow-lg'></iframe>
             </div>}
           <div className='text-center py-10 '>
             <h2 className='text-5xl py-2 text-teal-600 font-medium md:text-6xl dark:text-teal-400 animate-slidedown'>Issac Levi</h2>
