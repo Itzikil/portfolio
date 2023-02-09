@@ -20,7 +20,9 @@ import { useState } from 'react'
 export default function Home() {
   const [darkMode, setDarkMode] = useState()
   const [openCv, setOpenCv] = useState()
-  const webImgs = [web1, web2, web3, web4, web5, web6]
+  const webImgs = [{ img: web1, url: 'https://gigerr.onrender.com/' }, { img: web2, url: '' }, { img: web3, url: '' },
+  { img: web4, url: '' }, { img: web5, url: '' }, { img: web6, url: '' }]
+
   return (
     <div className={darkMode ? 'dark' : ''}>
       <Head>
@@ -44,7 +46,7 @@ export default function Home() {
           </nav>
           {openCv &&
             <div className='animate-slidedown'>
-              <a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8' target="_blank" href="/cv.pdf">Open in new tab</a>
+              <a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8' target="_blank" href="cv.pdf">Open in new tab</a>
               <iframe src="cv.pdf" className='min-w-full h-96 rounded-lg shadow-lg'></iframe>
             </div>}
           <div className='text-center py-10 '>
@@ -64,7 +66,7 @@ export default function Home() {
             <a target="_blank" href="https://www.facebook.com/itzik.levi.142/">
               <AiFillFacebook className='hover:scale-110 ease-in duration-150 animate-slideright' /></a>
           </div>
-          <div className='relative mx-auto bg-gradient-to-b from-teal-500 hover:from-cyan-600 ease-in duration-1000
+          <div className='relative mx-auto bg-gradient-to-b from-teal-500 hover:bg-slate-500 ease-in duration-300 
            rounded-full w-80 h-80 mt-10 overflow-hidden md:h-96 md:w-96 animate-slideup flex items-center'>
             <Image src={deved} layout="fill" objectFit='cover' />
           </div>
@@ -145,7 +147,7 @@ export default function Home() {
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
             {webImgs.map((web, i) => {
               return <div className='basis-1/3 flex-1' key={i}>
-                <Image src={web} className="rounded-lg object-cover" width={'100%'} height={'100%'} layout='responsive' />
+                <a href={web.url} target="_blank"><Image src={web.img} className="rounded-lg object-cover" width={'100%'} height={'100%'} layout='responsive' /></a>
               </div>
             })}
           </div>
