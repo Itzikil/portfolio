@@ -24,7 +24,7 @@ export default function Home() {
   const [currImg, setCurrImg] = useState({})
   const webImgs = [{ img: web1, url: 'https://itzikil.github.io/Bit-coin-react/' }, { img: web2, url: 'https://gigerr.onrender.com/' },
   { img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/' },
-  { img: web4, url: '' }]
+  ]
 
   // const overImage = (ev, i) => {
   //   console.log(ev);
@@ -86,19 +86,16 @@ export default function Home() {
 
         <section className='relative z-10'>
           <div>
-            <h3 className='text-3xl py-1 dark:text-white'>Services I offer</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Since the beginning of my journey as a freelance designer and
-              developer, I've done remote work for
-              <span className="text-teal-500"> agencies </span>
-              consulted for <span className="text-teal-500">startups </span>
-              and collaborated with talanted people to create digital products
-              for both business and consumer use.
+            <h3 className='text-3xl py-1 dark:text-white'>Knowledge</h3>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
+              Those are some of the technologies I use on a <span className="text-teal-500"> daily bases </span>, I belive that knowing wide number of technologies
+              and maste them may give you a brighter picture of the coding world, and make your developing more <span className="text-teal-500"> creative </span>
+              
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer from a wide range of services, including brand design,
               programming and teaching.
-            </p>
+            </p> */}
           </div>
           <div className='lg:flex gap-10'>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
@@ -122,8 +119,8 @@ export default function Home() {
               </p> */}
               <h4 className='py-4 text-teal-600'>Backend tools I use</h4>
               <p className="text-gray-800 py-1">Node.js</p>
-              <p className="text-gray-800 py-1">MongoDb</p>
               <p className="text-gray-800 py-1">Express</p>
+              <p className="text-gray-800 py-1">MongoDb</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
               <Image src={consulting} width={100} height={100} className='animate-float' />
@@ -133,36 +130,36 @@ export default function Home() {
                 design theory.
               </p> */}
               <h4 className='py-4 text-teal-600'>Other tools I use</h4>
+              <p className="text-gray-800 py-1">Git</p>
               <p className="text-gray-800 py-1">Vuex</p>
               <p className="text-gray-800 py-1">Redux</p>
               <p className="text-gray-800 py-1">Tailwind</p>
-              <p className="text-gray-800 py-1">Git</p>
             </div>
           </div>
         </section>
         <section className='relative z-10'>
           <div>
-            <h3 className='text-3xl py-1 dark:text-white'>Portfolio</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Since the beginning of my journey as a freelance designer and
-              developer, I've done remote work for
-              <span className="text-teal-500"> agencies </span>
-              consulted for <span className="text-teal-500">startups </span>
-              and collaborated with talanted people to create digital products
-              for both business and consumer use.
+            <h3 className='text-3xl py-1 dark:text-white'>Projects</h3>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
+              As a junior developer I always want to learn more, 
+              and there is no better way to learn than make projects, those are few of my <span className="text-teal-500">favorite </span> projects 
+              I made, every one of them tells a diffrent story, and every one of them was made by diffrent 
+              <span className="text-teal-500"> tools </span>
+              
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer from a wide range of services, including brand design,
               programming and teaching.
-            </p>
+            </p> */}
           </div>
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
             {webImgs.map((web, i) => {
               return <div className='basis-1/3 flex-1' key={i}>
-                <a href={web.url} target="_blank">
-                  <Image src={web.img} className="rounded-lg project-img hover:object-right duration-[2.5s]" width={'100%'} height={'100%'} layout='responsive'
+                <a href={web.url} target="_blank" className='relative'>
+                  <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s] " width={'100%'} height={'100%'} layout='responsive'
                     // onMouseMove={(ev) => overImage(ev, i)} objectPosition={i === currImg.i ? currImg.x : ''} 
                     />
+                    {/* <div className='bg-slate-400 w-full h-full absolute top-0 opacity-20 hover:hidden'></div> */}
                 </a>
               </div>
             })}
