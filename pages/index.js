@@ -1,15 +1,16 @@
 import Head from 'next/head'
 
 import { BsFillMoonStarsFill } from 'react-icons/bs'
-import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube, AiFillFacebook } from 'react-icons/ai'
-import deved from '../public/dev-ed-wave.png'
+import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube, AiFillFacebook , AiFillGithub} from 'react-icons/ai'
+// import deved from '../public/dev-ed-wave.png'
+import deved from '../public/myAvatar.webp'
 import design from '../public/design.png'
 import code from '../public/code.png'
 import consulting from '../public/consulting.png'
 import Image from 'next/legacy/image'
-import web1 from '../public/web1.png'
-import web2 from '../public/web2.png'
-import web3 from '../public/web3.png'
+import web1 from '../public/React-bitcoin.png'
+import web2 from '../public/gigger.png'
+import web3 from '../public/pixelPerfect.png'
 import web4 from '../public/web4.png'
 import web5 from '../public/web5.png'
 import web6 from '../public/web6.png'
@@ -20,8 +21,19 @@ import { useState } from 'react'
 export default function Home() {
   const [darkMode, setDarkMode] = useState()
   const [openCv, setOpenCv] = useState()
-  const webImgs = [{ img: web1, url: 'https://gigerr.onrender.com/' }, { img: web2, url: '' }, { img: web3, url: '' },
-  { img: web4, url: '' }, { img: web5, url: '' }, { img: web6, url: '' }]
+  const [currImg, setCurrImg] = useState({})
+  const webImgs = [{ img: web1, url: 'https://itzikil.github.io/Bit-coin-react/' }, { img: web2, url: 'https://gigerr.onrender.com/' },
+  { img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/' },
+  { img: web4, url: '' }]
+
+  // const overImage = (ev, i) => {
+  //   console.log(ev);
+  //   console.log(i);
+  //   var x = ev.clientX
+  //   var y = ev.clientY
+  //   setCurrImg({ i, x, y })
+  //   console.log(currImg)
+  // }
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -32,7 +44,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900'>
+      <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 duration-500'>
         <section className='min-h-screen relative z-10'>
           <nav className='pt-10 mb-12 flex justify-between dark:text-white'>
             <h1 className='text-xl font-burtons dark:text-gray-200'>developedbyil</h1>
@@ -40,7 +52,7 @@ export default function Home() {
               <li><BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer text-xl dark:text-gray-200' /></li>
               <li>
                 <a className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8 cursor-pointer hover:animate-pulse'
-                  onClick={() => setOpenCv(!openCv)}>Resume</a>
+                  onClick={() => setOpenCv(!openCv)}>{openCv ? 'Close' : 'Resume'}</a>
               </li>
             </ul>
           </nav>
@@ -54,13 +66,13 @@ export default function Home() {
             <h3 className='text-2xl py-2 md:text-3xl  dark:text-white animate-slideup '>Fullstack Developer</h3>
             <div className='border-slate-600 animate-typing overflow-hidden whitespace-nowrap my-border max-w-fit max-h-fit'>
               <p className='text-md py-5 leading-8 text-gray-800 p-0 md:text-xl dark:text-gray-200 '>
-                HI my name is Issac and this is my portfolio
+                My name is Issac and this is my portfolio
               </p>
             </div>
           </div>
           <div className='text-5xl flex justify-center gap-16 text-gray-600 dark:text-gray-400 relative '>
-            <a target="_blank" href="https://www.youtube.com/channel/UC-AlQ6ccXKqLEH1uRT4R3Wg">
-              <AiFillYoutube className='hover:scale-110 ease-in duration-150 animate-slideleft' /></a>
+            <a target="_blank" href="https://github.com/Itzikil">
+              <AiFillGithub className='hover:scale-110 ease-in duration-150 animate-slideleft' /></a>
             <a target="_blank" href="https://www.linkedin.com/in/issac-levi/">
               <AiFillLinkedin className='hover:scale-110 ease-in duration-150 animate-slowfade' /></a>
             <a target="_blank" href="https://www.facebook.com/itzik.levi.142/">
@@ -68,7 +80,7 @@ export default function Home() {
           </div>
           <div className='relative mx-auto bg-gradient-to-b from-teal-500 hover:bg-slate-500 ease-in duration-300 
            rounded-full w-80 h-80 mt-10 overflow-hidden md:h-96 md:w-96 animate-slideup flex items-center'>
-            <Image src={deved} layout="fill" objectFit='cover' />
+            <Image src={deved} layout="fill" objectFit='cover' className='w-10' />
           </div>
         </section>
 
@@ -90,7 +102,7 @@ export default function Home() {
           </div>
           <div className='lg:flex gap-10'>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={design} width={100} height={100} />
+              <Image src={design} width={100} height={100} className='animate-float' />
               <h3 className='text-lg font-medium pt-8 pb-2'>Frontend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -102,7 +114,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Angular</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={code} width={100} height={100} />
+              <Image src={code} width={100} height={100} className='animate-float' />
               <h3 className='text-lg font-medium pt-8 pb-2'>Backend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -114,7 +126,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Express</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={consulting} width={100} height={100} />
+              <Image src={consulting} width={100} height={100} className='animate-float' />
               <h3 className='text-lg font-medium pt-8 pb-2'>Other</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -147,7 +159,11 @@ export default function Home() {
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
             {webImgs.map((web, i) => {
               return <div className='basis-1/3 flex-1' key={i}>
-                <a href={web.url} target="_blank"><Image src={web.img} className="rounded-lg object-cover" width={'100%'} height={'100%'} layout='responsive' /></a>
+                <a href={web.url} target="_blank">
+                  <Image src={web.img} className="rounded-lg project-img hover:object-right duration-[2.5s]" width={'100%'} height={'100%'} layout='responsive'
+                    // onMouseMove={(ev) => overImage(ev, i)} objectPosition={i === currImg.i ? currImg.x : ''} 
+                    />
+                </a>
               </div>
             })}
           </div>

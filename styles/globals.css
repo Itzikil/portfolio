@@ -29,6 +29,11 @@ a {
   padding: 0;
 }
 
+.project-img{
+  object-fit: cover;
+  object-position: 0% 100%;
+}
+
 @font-face {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
