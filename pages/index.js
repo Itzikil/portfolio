@@ -6,6 +6,9 @@ import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube, AiFillFacebook , Ai
 import deved from '../public/myAvatar.webp'
 import design from '../public/design.png'
 import code from '../public/code.png'
+import frontend from '../public/frontend.jpg'
+import backend from '../public/backend.jpg'
+import tools from '../public/tools.jpg'
 import consulting from '../public/consulting.png'
 import Image from 'next/legacy/image'
 import web1 from '../public/React-bitcoin.png'
@@ -99,8 +102,8 @@ export default function Home() {
           </div>
           <div className='lg:flex gap-10'>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={design} width={100} height={100} className='animate-float' />
-              <h3 className='text-lg font-medium pt-8 pb-2'>Frontend</h3>
+              <Image src={frontend}  className='animate-float shadow-bottom hover:animate-none rounded-full' title='Let me float'/>
+              <h3 className='text-lg font-medium pb-2'>Frontend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
                 design theory.
@@ -111,8 +114,8 @@ export default function Home() {
               <p className="text-gray-800 py-1">Angular</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={code} width={100} height={100} className='animate-float' />
-              <h3 className='text-lg font-medium pt-8 pb-2'>Backend</h3>
+              <Image src={backend} className='animate-float hover:animate-none rounded-full' title='Let me float'/>
+              <h3 className='text-lg font-medium pb-2'>Backend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
                 design theory.
@@ -123,8 +126,8 @@ export default function Home() {
               <p className="text-gray-800 py-1">MongoDb</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={consulting} width={100} height={100} className='animate-float' />
-              <h3 className='text-lg font-medium pt-8 pb-2'>Other</h3>
+              <Image src={tools} className='animate-float hover:animate-none rounded-full' title='Let me float'/>
+              <h3 className='text-lg font-medium pb-2'>Other</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
                 design theory.
@@ -154,8 +157,8 @@ export default function Home() {
           </div>
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
             {webImgs.map((web, i) => {
-              return <div className='basis-1/3 flex-1' key={i}>
-                <a href={web.url} target="_blank" className='relative'>
+              return <div className='basis-1/3 flex-1 shadow-md rounded-lg' key={i}>
+                <a href={web.url} target="_blank" className='relative '>
                   <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s] " width={'100%'} height={'100%'} layout='responsive'
                     // onMouseMove={(ev) => overImage(ev, i)} objectPosition={i === currImg.i ? currImg.x : ''} 
                     />
