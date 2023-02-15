@@ -1,42 +1,25 @@
 import Head from 'next/head'
 
 import { BsFillMoonStarsFill } from 'react-icons/bs'
-import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube, AiFillFacebook , AiFillGithub} from 'react-icons/ai'
+import { AiFillLinkedin, AiFillFacebook, AiFillGithub } from 'react-icons/ai'
 // import deved from '../public/dev-ed-wave.png'
 import deved from '../public/myAvatar.webp'
-import design from '../public/design.png'
-import code from '../public/code.png'
 import frontend from '../public/frontend.jpg'
 import backend from '../public/backend.jpg'
 import tools from '../public/tools.jpg'
-import consulting from '../public/consulting.png'
 import Image from 'next/legacy/image'
 import web1 from '../public/React-bitcoin.png'
 import web2 from '../public/gigger.png'
 import web3 from '../public/pixelPerfect.png'
-import web4 from '../public/web4.png'
-import web5 from '../public/web5.png'
-import web6 from '../public/web6.png'
-// import resume from '../public/cv.pdf'
 import { useState } from 'react'
 
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState()
   const [openCv, setOpenCv] = useState()
-  const [currImg, setCurrImg] = useState({})
   const webImgs = [{ img: web1, url: 'https://itzikil.github.io/Bit-coin-react/' }, { img: web2, url: 'https://gigerr.onrender.com/' },
   { img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/' },
   ]
-
-  // const overImage = (ev, i) => {
-  //   console.log(ev);
-  //   console.log(i);
-  //   var x = ev.clientX
-  //   var y = ev.clientY
-  //   setCurrImg({ i, x, y })
-  //   console.log(currImg)
-  // }
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -93,7 +76,7 @@ export default function Home() {
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
               Those are some of the technologies I use on a <span className="text-teal-500"> daily bases </span>, I belive that knowing wide number of technologies
               and maste them may give you a brighter picture of the coding world, and make your developing more <span className="text-teal-500"> creative </span>
-              
+
             </p>
             {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer from a wide range of services, including brand design,
@@ -102,7 +85,7 @@ export default function Home() {
           </div>
           <div className='lg:flex gap-10'>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={frontend}  className='animate-float shadow-bottom hover:animate-none rounded-full' title='Let me float'/>
+              <Image src={frontend} className='animate-float shadow-bottom hover:animate-none rounded-full' title='Let me float' />
               <h3 className='text-lg font-medium pb-2'>Frontend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -114,7 +97,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Angular</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={backend} className='animate-float hover:animate-none rounded-full' title='Let me float'/>
+              <Image src={backend} className='animate-float hover:animate-none rounded-full' title='Let me float' />
               <h3 className='text-lg font-medium pb-2'>Backend</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -126,7 +109,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">MongoDb</p>
             </div>
             <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={tools} className='animate-float hover:animate-none rounded-full' title='Let me float'/>
+              <Image src={tools} className='animate-float hover:animate-none rounded-full' title='Let me float' />
               <h3 className='text-lg font-medium pb-2'>Other</h3>
               {/* <p className="py-2">
                 Creating elegant designs suited for your needs following core
@@ -144,11 +127,11 @@ export default function Home() {
           <div>
             <h3 className='text-3xl py-1 dark:text-white'>Projects</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
-              As a junior developer I always want to learn more, 
-              and there is no better way to learn than make projects, those are few of my <span className="text-teal-500">favorite </span> projects 
-              I made, every one of them tells a diffrent story, and every one of them was made by diffrent 
+              As a junior developer I always want to learn more,
+              and there is no better way to learn than make projects, those are few of my <span className="text-teal-500">favorite </span> projects
+              I made, every one of them tells a diffrent story, and every one of them was made by diffrent
               <span className="text-teal-500"> tools </span>
-              
+
             </p>
             {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               I offer from a wide range of services, including brand design,
@@ -159,10 +142,8 @@ export default function Home() {
             {webImgs.map((web, i) => {
               return <div className='basis-1/3 flex-1 shadow-md rounded-lg' key={i}>
                 <a href={web.url} target="_blank" className='relative '>
-                  <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s] " width={'100%'} height={'100%'} layout='responsive'
-                    // onMouseMove={(ev) => overImage(ev, i)} objectPosition={i === currImg.i ? currImg.x : ''} 
-                    />
-                    {/* <div className='bg-slate-400 w-full h-full absolute top-0 opacity-20 hover:hidden'></div> */}
+                  <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s]"
+                    width={'100%'} height={'100%'} layout='responsive' />
                 </a>
               </div>
             })}
