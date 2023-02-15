@@ -47,8 +47,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 duration-500'>
-        <section className='min-h-screen relative z-10'>
+      <main className='bg-white px-10 dark:bg-gray-900 duration-500'>
+        <section className='relative z-10'>
           <nav className='pt-10 mb-12 flex justify-between dark:text-white'>
             <h1 className='text-xl font-burtons dark:text-gray-200'>developedbyil</h1>
             <ul className='flex items-center'>
