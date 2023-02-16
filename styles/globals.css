@@ -34,27 +34,37 @@ a {
   object-position: 0% 0%;
 }
 
-.shadow-bottom {
-  /* box-shadow: 0px 25px 20px -15px #111;  */
-  min-height: 150px;
-}
-
 main {
   max-width: 1200px;
   margin: auto;
 }
 
+/* text color transition */
+
+@property --myColor1 {
+  syntax: '<color>';
+  initial-value: rgb(84, 211, 233);
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: rgb(8, 114, 102);
+  inherits: false;
+}
+
 .project-image p {
-  background: linear-gradient(to right, #087064, #54d3e9);
+  background: linear-gradient(to right, var(--myColor1), var(--myColor2));
   background-clip: text;
   color: transparent;
   padding: 0;
   opacity: 0;
-  transition: opacity 1s, transform 3s;
+  transition: --myColor1 3s, --myColor2 3s, opacity 1s;
 }
 
 .project-image:hover p {
-  /* transform: translateX(80%); */
+  --myColor1: rgb(8, 114, 102);
+  --myColor2: rgb(84, 211, 233);
   opacity: 1;
 }
 
@@ -72,4 +82,9 @@ main {
 @font-face {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
+}
+
+@font-face {
+  font-family: "zeyada";
+  src: url("../public/GreatVibes-Regular.ttf");
 }

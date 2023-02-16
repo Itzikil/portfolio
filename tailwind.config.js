@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        burtons: "burtons"
+        burtons: "burtons",
+        zeyada:"zeyada"
       },
       colors: {
         black: '#191624',
@@ -20,7 +21,7 @@ module.exports = {
         wave: 'wave 1.2s linear infinite',
         float: 'float 3s infinite',
         slowfade: 'slowfade 2.2s ease-in-out',
-        typing: 'typing 4.8s steps(40, end) , blinkCaret .75s step-end infinite',
+        typing: 'typing 3.5s steps(40, end) , blinkCaret .75s step-end infinite',
       },
 
       keyframes: {

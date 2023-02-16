@@ -49,7 +49,7 @@ export default function Home() {
               <iframe src="cv.pdf" className='min-w-full h-96 rounded-lg shadow-lg'></iframe>
             </div>}
           <div className='text-center py-10 '>
-            <h2 className='text-5xl py-2 text-teal-600 font-medium md:text-6xl dark:text-teal-400 animate-slidedown'>Issac Levi</h2>
+            <h2 className='font-zeyada text-7xl py-2 text-teal-600 font-bold md:text-8xl dark:text-teal-400 animate-slidedown'>Issac Levi</h2>
             <h3 className='text-2xl py-2 md:text-3xl  dark:text-white animate-slideup '>Fullstack Developer</h3>
             <div className='border-slate-600 animate-typing overflow-hidden whitespace-nowrap my-border max-w-fit max-h-fit'>
               <p className='text-md py-5 leading-8 text-gray-800 p-0 md:text-xl dark:text-gray-200 '>
