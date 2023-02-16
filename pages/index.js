@@ -9,7 +9,7 @@ import backend from '../public/backend.jpg'
 import tools from '../public/tools.jpg'
 import Image from 'next/legacy/image'
 import web1 from '../public/React-bitcoin.png'
-import web2 from '../public/gigger.png'
+import web2 from '../public/gigger.jpg'
 import web3 from '../public/pixelPerfect.png'
 import { useState } from 'react'
 
@@ -17,8 +17,9 @@ import { useState } from 'react'
 export default function Home() {
   const [darkMode, setDarkMode] = useState()
   const [openCv, setOpenCv] = useState()
-  const webImgs = [{ img: web1, url: 'https://itzikil.github.io/Bit-coin-react/' }, { img: web2, url: 'https://gigerr.onrender.com/' },
-  { img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/' },
+  const webImgs = [{ img: web1, url: 'https://itzikil.github.io/Bit-coin-react/', header: 'Bit app' },
+  { img: web2, url: 'https://gigerr.onrender.com/', header: 'Fiverr clone' },
+  { img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/', header: 'Pixel-perfect project' },
   ]
 
   return (
@@ -141,9 +142,10 @@ export default function Home() {
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
             {webImgs.map((web, i) => {
               return <div className='basis-1/3 flex-1 shadow-md rounded-lg' key={i}>
-                <a href={web.url} target="_blank" className='relative '>
+                <a href={web.url} target="_blank" className='relative project-image'>
                   <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s]"
                     width={'100%'} height={'100%'} layout='responsive' />
+                  <p className='absolute h-fit top-4 left-4 font-bold text-xl sm:text-4xl'>{web.header}</p>
                 </a>
               </div>
             })}
