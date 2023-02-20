@@ -69,14 +69,13 @@ main {
 }
 
 .project-image:hover img {
-  border-top-left-radius: 250px;
+  border-top-left-radius: 200px;
 }
 
 @media (max-width:640px) {
   .project-image:hover img {
     border-top-left-radius: 150px;
   }
-
 }
 
 @font-face {
@@ -85,6 +84,20 @@ main {
 }
 
 @font-face {
-  font-family: "zeyada";
+  font-family: "GreatVibes";
   src: url("../public/GreatVibes-Regular.ttf");
+}
+
+.rotate0{
+  transform: rotate(-10deg) translateX(-50px);
+}
+
+.showProject{
+  /* transform: rotate(0deg) translateX(-340px) translateY(340px)  !important; */
+  /* transition: 2.5s; */
+}
+
+.rotate2{
+  transform: rotate(10deg) translateX(50px);
+  z-index: 30;
 }

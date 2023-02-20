@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         burtons: "burtons",
-        zeyada:"zeyada"
+        GreatVibes:"GreatVibes"
       },
       colors: {
         black: '#191624',
