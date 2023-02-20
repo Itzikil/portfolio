@@ -20,7 +20,8 @@ export default function Home() {
   const [showProject, setShowProject] = useState(null)
   let windowWidth
   if (global.window) windowWidth = window?.innerWidth || ''
-  var translateProject = {transform: `translateX(-${(windowWidth / 3) }px) rotate(0deg) translateY(340px)`}
+  var translateProject = {transform: `translate(-${(windowWidth / 4) }px ,340px ) rotate(0deg)`}
+  // var translateProject = {transform: `translateX(-${(windowWidth / 3) }px) rotate(0deg) translateY(340px)`}
 
   const webImgs = [
     {
