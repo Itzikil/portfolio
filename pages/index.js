@@ -1,8 +1,6 @@
 import Head from 'next/head'
-
 import { BsFillMoonStarsFill } from 'react-icons/bs'
 import { AiFillLinkedin, AiFillFacebook, AiFillGithub } from 'react-icons/ai'
-// import deved from '../public/dev-ed-wave.png'
 import deved from '../public/myAvatar.webp'
 import frontend from '../public/frontend.jpg'
 import backend from '../public/backend.jpg'
@@ -11,18 +9,28 @@ import Image from 'next/legacy/image'
 import web1 from '../public/React-bitcoin.png'
 import web2 from '../public/gigger.jpg'
 import web3 from '../public/pixelPerfect.png'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState()
   const [openCv, setOpenCv] = useState()
   const [showProject, setShowProject] = useState(null)
+  const [toggleDesc, setToggleDesc] = useState(true)
   let windowWidth
   if (global.window) windowWidth = window?.innerWidth || ''
-  var translateProject = {transform: `translate(-${(windowWidth / 4) }px ,340px ) rotate(0deg)`}
-  // var translateProject = {transform: `translateX(-${(windowWidth / 3) }px) rotate(0deg) translateY(340px)`}
+  var translateProject = { transform: `translate(-${(windowWidth / 4)}px ,340px ) rotate(0deg)` }
 
+  useEffect(() => {
+    setToggleDesc(true)
+  }, [!toggleDesc])
+
+  var onToggle = () => {
+    setToggleDesc(false)
+  }
+
+  const knowledges = [{ knowledge: 'Frontend', tools: ['Vue', 'React', 'Angular'], src: frontend },
+  { knowledge: 'Backend', tools: ['Node.js', 'Express', 'MongoDb'], src: backend },
+  { knowledge: 'Other', tools: ['Git', 'Vuex', 'Redux', 'Tailwind'], src: tools }]
   const webImgs = [
     {
       img: web1, url: 'https://itzikil.github.io/Bit-coin-react/', tech: 'React & Redux', header: 'Bit app',
@@ -96,31 +104,12 @@ export default function Home() {
             </p>
           </div>
           <div className='sm:flex gap-10'>
-            <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={frontend} className='animate-float shadow-bottom hover:animate-none rounded-full' title='Let me float' />
-              <h3 className='text-lg font-medium pb-2'>Frontend</h3>
-              <h4 className='py-4 text-teal-600'>Frontend tools I use</h4>
-              <p className="text-gray-800 py-1">Vue</p>
-              <p className="text-gray-800 py-1">React</p>
-              <p className="text-gray-800 py-1">Angular</p>
-            </div>
-            <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={backend} className='animate-float hover:animate-none rounded-full' title='Let me float' />
-              <h3 className='text-lg font-medium pb-2'>Backend</h3>
-              <h4 className='py-4 text-teal-600'>Backend tools I use</h4>
-              <p className="text-gray-800 py-1">Node.js</p>
-              <p className="text-gray-800 py-1">Express</p>
-              <p className="text-gray-800 py-1">MongoDb</p>
-            </div>
-            <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-              <Image src={tools} className='animate-float hover:animate-none rounded-full' title='Let me float' />
-              <h3 className='text-lg font-medium pb-2'>Other</h3>
-              <h4 className='py-4 text-teal-600'>Other tools I use</h4>
-              <p className="text-gray-800 py-1">Git</p>
-              <p className="text-gray-800 py-1">Vuex</p>
-              <p className="text-gray-800 py-1">Redux</p>
-              <p className="text-gray-800 py-1">Tailwind</p>
-            </div>
+            {knowledges.map((knowledge) => <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
+              <Image src={knowledge.src} className='animate-float shadow-bottom hover:animate-none rounded-full' title='Let me float' />
+              <h3 className='text-lg font-medium pb-2'>{knowledge.knowledge}</h3>
+              <h4 className='py-4 text-teal-600'>{knowledge.knowledge} tools I use</h4>
+              {knowledge.tools.map((tool, i) => <p className="text-gray-800 py-1">{tool}</p>)}
+            </div>)}
           </div>
         </section>
         <section className='relative z-10'>
@@ -138,7 +127,7 @@ export default function Home() {
               return <div style={showProject === i ? translateProject : {}} className={`basis-1/3 flex-1 shadow-md rounded-lg h-fit absolute sm:w-[30%] w-[45%] rotate${i} m-auto inset-0 duration-[2.2s]
                ${showProject === i ? 'showProject' : ''}`} key={i}>
                 <div className={`absolute bottom-0 w-full min-h-full z-20  ${showProject === i ? 'hidden' : ''}`}
-                  onClick={() => setShowProject(i)}></div>
+                  onClick={() => { setShowProject(i), onToggle() }}></div>
                 <a href={web.url} target="_blank" className='relative project-image'>
                   <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s]"
                     width={'100%'} height={'100%'} layout='responsive' />
@@ -160,17 +149,15 @@ export default function Home() {
             })}
           </div> */}
         </section>
-        {(showProject || showProject === 0 )&& <div className='relative ml-[50%] z-50 h-screen flex flex-col gap-2 dark:text-white duration-1000'>
-          <h3 className='text-4xl'>{webImgs[showProject]?.header}</h3>
+        {toggleDesc && <div className='relative ml-[50%] z-50 h-screen flex flex-col gap-2 dark:text-white duration-1000 animate-slideright ease-in'>
+          <h3 className='text-4xl'>{showProject ? webImgs[showProject]?.header : 'My portfolio'}</h3>
           <p>{webImgs[showProject]?.desc}</p>
-          <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {webImgs[showProject]?.tech}</p>
+          <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {showProject ? webImgs[showProject]?.tech : 'React Next.js Tailwind'}</p>
           <button onClick={() => setShowProject(null)}>I have seen enough</button>
         </div>}
-        {!showProject && showProject !== 0 && <div className='relative ml-[50%] z-50 h-screen flex flex-col gap-2 dark:text-white duration-1000'>
-          <h3 className='text-4xl'>My portfolio</h3>
-          <p>{webImgs[showProject]?.desc}</p>
-          <p><span className='text-lg font-semibold'>Built by:</span> React Next.js Tailwind</p>
-        </div>}
+        <div className='h-screen'>
+
+        </div>
       </main>
       <svg className='fixed bottom-0 opacity-75 z-0 h-28 sm:h-56 2xl:w-full' data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" >
         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
