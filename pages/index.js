@@ -32,16 +32,16 @@ export default function Home() {
   { knowledge: 'Other', tools: ['Git', 'Vuex', 'Redux', 'Tailwind'], src: tools }]
   const webImgs = [
     {
-      img: web1, url: 'https://itzikil.github.io/Bit-coin-react/', tech: 'React & Redux', header: 'Bit app',
+      img: web1, url: 'https://itzikil.github.io/Bit-coin-react/', tech: 'React & Redux', header: 'Bit app', sideHeader: 'Bit',
       desc: 'Same as Bit and Paybox applications, You can transfer money but instead of money you transfer Bitcoins'
     },
     {
       img: web2, url: 'https://gigerrs.onrender.com/', header: 'Fiverr clone', tech: 'Vue Vuex MongoDb & Express',
-      desc: 'A clone of Fiverr, maketplace for gigs, Its actually pixel perfect too'
+      desc: 'A clone of Fiverr, maketplace for gigs, Its actually pixel perfect too',sideHeader: 'Fiverr'
     },
     {
       img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/', tech: 'Vue & Avocode', header: 'Pixel-perfect project',
-      desc: 'Pixel-perfect project that should look exactly like the client want, is it?'
+      desc: 'Pixel-perfect project that should look exactly like the client want, is it?',sideHeader: 'Pixel-perfect'
     },
   ]
 
@@ -132,7 +132,7 @@ export default function Home() {
                 <a href={web.url} target="_blank" className='relative project-image'>
                   <Image src={web.img} className="rounded-lg project-img hover:object-bottom duration-[2.5s]"
                     width={'100%'} height={'100%'} layout='responsive' />
-                  <p className='absolute h-fit top-4 left-4 font-bold text-base md:text-xl lg:text-2xl'>{web.header}</p>
+                  <p className='absolute h-fit top-4 left-4 font-bold text-base md:text-xl lg:text-2xl'>{web.sideHeader}</p>
                 </a>
               </div>
             })}
@@ -155,7 +155,7 @@ export default function Home() {
             <h3 className='text-4xl'>{(showProject || showProject === 0) ? webImgs[showProject]?.header : 'My portfolio'}</h3>
             <p>{webImgs[showProject]?.desc}</p>
             <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {(showProject || showProject === 0) ? webImgs[showProject]?.tech : 'React Next.js Tailwind'}</p>
-            <button onClick={() => setShowProject(null)}>I have seen enough</button>
+            {(showProject || showProject === 0)&&<button onClick={() => setShowProject(null)}>I have seen enough</button>}
           </div>}
         </div>
       </main>
