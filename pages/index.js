@@ -16,8 +16,7 @@ export default function Home() {
   const [openCv, setOpenCv] = useState()
   const [showProject, setShowProject] = useState(null)
   const [toggleDesc, setToggleDesc] = useState(true)
-  let windowWidth
-  if (global.window) windowWidth = window?.innerWidth || ''
+  let windowWidth = global.window?.innerWidth > 600 ? global.window?.innerWidth  : 0
   var translateProject = { transform: `translate(-${(windowWidth / 4)}px ,340px ) rotate(0deg)` }
 
   useEffect(() => {
@@ -112,7 +111,7 @@ export default function Home() {
             </div>)}
           </div>
         </section>
-        <section className='relative z-10'>
+        <section className='relative z-20'>
           <div>
             <h3 className='text-3xl py-1 dark:text-white'>Projects</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
@@ -122,9 +121,10 @@ export default function Home() {
               <span className="text-teal-500"> tools </span>
             </p>
           </div>
-          <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap relative h-[500px]'>
+          <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap relative sm:h-[500px] h-[300px]'>
             {webImgs.map((web, i) => {
-              return <div style={showProject === i ? translateProject : {}} className={`basis-1/3 flex-1 shadow-md rounded-lg h-fit absolute sm:w-[30%] w-[45%] rotate${i} m-auto inset-0 duration-[2.2s]
+              return <div style={showProject === i ? translateProject : {}} className={`basis-1/3 flex-1 shadow-md rounded-lg h-fit absolute
+               sm:w-[30%] w-[65%] rotate${i} m-auto inset-0 duration-[2.2s] !z-20
                ${showProject === i ? 'showProject' : ''}`} key={i}>
                 <div className={`absolute bottom-0 w-full min-h-full z-20  ${showProject === i ? 'hidden' : ''}`}
                   onClick={() => { setShowProject(i), onToggle() }}></div>
@@ -149,14 +149,13 @@ export default function Home() {
             })}
           </div> */}
         </section>
-        {toggleDesc && <div className='relative ml-[50%] z-50 h-screen flex flex-col gap-2 dark:text-white duration-1000 animate-slideright ease-in'>
-          <h3 className='text-4xl'>{showProject ? webImgs[showProject]?.header : 'My portfolio'}</h3>
-          <p>{webImgs[showProject]?.desc}</p>
-          <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {showProject ? webImgs[showProject]?.tech : 'React Next.js Tailwind'}</p>
-          <button onClick={() => setShowProject(null)}>I have seen enough</button>
-        </div>}
-        <div className='h-screen'>
-
+        <div className={`h-[600px] z-10 sm:h-[400px] relative ${!(showProject || showProject === 0) && '-translate-y-72 h-[400px] sm:translate-y-0 sm:translate-x-10'} duration-[2s]`}>
+          {toggleDesc && <div className='absolute sm:ml-[50%] mt-[350px] mb-[150px] sm:mt-0 z-10 flex flex-col gap-2 dark:text-white duration-1000 animate-slideright ease-in'>
+            <h3 className='text-4xl'>{(showProject || showProject === 0) ? webImgs[showProject]?.header : 'My portfolio'}</h3>
+            <p>{webImgs[showProject]?.desc}</p>
+            <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {(showProject || showProject === 0) ? webImgs[showProject]?.tech : 'React Next.js Tailwind'}</p>
+            <button onClick={() => setShowProject(null)}>I have seen enough</button>
+          </div>}
         </div>
       </main>
       <svg className='fixed bottom-0 opacity-75 z-0 h-28 sm:h-56 2xl:w-full' data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" >
