@@ -9,6 +9,7 @@ import Image from 'next/legacy/image'
 import web1 from '../public/React-bitcoin.png'
 import web2 from '../public/gigger.jpg'
 import web3 from '../public/pixelPerfect.png'
+import web4 from '../public/imilmusic.png'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
   const [openCv, setOpenCv] = useState()
   const [showProject, setShowProject] = useState(null)
   const [toggleDesc, setToggleDesc] = useState(true)
-  let windowWidth = global.window?.innerWidth > 600 ? global.window?.innerWidth  : 0
+  let windowWidth = global.window?.innerWidth > 600 ? global.window?.innerWidth : 0
   var translateProject = { transform: `translate(-${(windowWidth / 4)}px ,340px ) rotate(0deg)` }
 
   useEffect(() => {
@@ -33,15 +34,19 @@ export default function Home() {
   const webImgs = [
     {
       img: web1, url: 'https://itzikil.github.io/Bit-coin-react/', tech: 'React & Redux', header: 'Bit app', sideHeader: 'Bit',
-      desc: 'Same as Bit and Paybox applications, You can transfer money but instead of money you transfer Bitcoins'
+      desc: 'Same as Bit and Paybox applications. Instead of transfering money you transfer Bitcoins'
     },
     {
-      img: web2, url: 'https://gigerrs.onrender.com/', header: 'Fiverr clone', tech: 'Vue Vuex MongoDb & Express',
-      desc: 'A clone of Fiverr, maketplace for gigs, Its actually pixel perfect too',sideHeader: 'Fiverr'
+      img: web2, url: 'https://gigerrs.onrender.com/', header: 'Fiverr clone', tech: 'Vue Vuex Node.js & MongoDb',
+      desc: 'A clone of Fiverr, the maketplace for gigs. It’s actually pixel-perfect too!    Disclaimer! (the site will load after 10 seconds, duo to the host bug).', sideHeader: 'Fiverr'
     },
     {
       img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/', tech: 'Vue & Avocode', header: 'Pixel-perfect project',
-      desc: 'Pixel-perfect project that should look exactly like the client want, is it?',sideHeader: 'Pixel-perfect'
+      desc: 'A pixel-perfect project should look exactly like the client wants. Does it?', sideHeader: 'Pixel-perfect'
+    },
+    {
+      img: web4, url: 'https://imilmusic.com/', tech: 'Vue & figma', header: 'Personal project for music students',
+      desc: 'A project that I made for me and my wife to reach music students, worked with ux/ui designer and figma, the site has customize domain', sideHeader: 'Music-students'
     },
   ]
 
@@ -97,9 +102,10 @@ export default function Home() {
         <section className='relative z-10'>
           <div>
             <h3 className='text-3xl py-1 dark:text-white'>Knowledge</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
-              Those are some of the technologies I use on a <span className="text-teal-500"> daily bases</span>, I belive that knowing wide number of technologies
-              and maste them may give you a brighter picture of the coding world, and make your developing more <span className="text-teal-500"> creative </span>
+            <p className="text-lg py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
+              These are some of the technologies I use on a <span className="text-teal-500"> daily bases</span>,
+              I believe that knowing a wide range of technologies and maste them gives you a brighter picture of the coding world,
+              and makes what you develop more  <span className="text-teal-500"> creative </span>
             </p>
           </div>
           <div className='sm:flex gap-10'>
@@ -114,17 +120,17 @@ export default function Home() {
         <section className='relative z-20'>
           <div>
             <h3 className='text-3xl py-1 dark:text-white'>Projects</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
-              As a junior developer I always want to learn more,
-              and there is no better way to learn than make projects, those are few of my <span className="text-teal-500">favorite </span>
-              projects I made, every one of them tells a diffrent story, and every one of them was made by diffrent
+            <p className="text-lg py-2 leading-8 text-gray-800 dark:text-gray-200 mr-10">
+              As a junior developer I always want to learn more, and there is no better way to learn than creating projects.
+              Here are a few of my <span className="text-teal-500">favorite </span>
+              projects I made, every one of them tells a diffrent story, and every one of them was made using a different set of
               <span className="text-teal-500"> tools </span>
             </p>
           </div>
           <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap relative sm:h-[500px] h-[300px]'>
             {webImgs.map((web, i) => {
               return <div style={showProject === i ? translateProject : {}} className={`basis-1/3 flex-1 shadow-md rounded-lg h-fit absolute
-               sm:w-[30%] w-[65%] rotate${i} m-auto inset-0 duration-[2.2s] !z-20
+               sm:w-[30%] w-[65%] rotate${i} m-auto inset-0 duration-[2.2s] !z-20 overflow-hidden
                ${showProject === i ? 'showProject' : ''}`} key={i}>
                 <div className={`absolute bottom-0 w-full min-h-full z-20 cursor-pointer hover:opacity-0 bg-slate-100 opacity-10
                 duration-500 ${showProject === i ? 'hidden' : ''}`}
@@ -155,7 +161,7 @@ export default function Home() {
             <h3 className='text-4xl'>{(showProject || showProject === 0) ? webImgs[showProject]?.header : 'My portfolio'}</h3>
             <p>{webImgs[showProject]?.desc}</p>
             <p className='mb-6'><span className='text-lg font-semibold'>Built by:</span> {(showProject || showProject === 0) ? webImgs[showProject]?.tech : 'React Next.js Tailwind'}</p>
-            {(showProject || showProject === 0)&&<button onClick={() => setShowProject(null)}>I have seen enough</button>}
+            {(showProject || showProject === 0) && <button onClick={() => setShowProject(null)}>I’ve seen enough</button>}
           </div>}
         </div>
       </main>
