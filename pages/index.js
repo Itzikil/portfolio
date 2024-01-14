@@ -156,7 +156,7 @@ export default function Home() {
             })}
           </div> */}
         </section>
-        <div className={`h-[600px] z-10 sm:h-[400px] relative ${!(showProject || showProject === 0) && '-translate-y-72 h-[400px] sm:translate-y-0 sm:-translate-x-[10%]'} duration-[2s]`}>
+        <div className={`h-[700px] z-10 sm:h-[400px] relative ${!(showProject || showProject === 0) && '-translate-y-72 h-[400px] sm:translate-y-0 sm:-translate-x-[10%]'} duration-[2s]`}>
           {toggleDesc && <div className='absolute sm:ml-[50%] mt-[350px] mb-[150px] sm:mt-0 z-10 flex flex-col gap-2 dark:text-white duration-1000 animate-slideright ease-in'>
             <h3 className='text-4xl'>{(showProject || showProject === 0) ? webImgs[showProject]?.header : 'My portfolio'}</h3>
             <p>{webImgs[showProject]?.desc}</p>

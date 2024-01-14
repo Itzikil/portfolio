@@ -106,3 +106,18 @@ main {
   transform: rotate(20deg) translateX(130px);
   z-index: -10;
 }
+
+@media (max-width:600px) {
+  .rotate0 {
+    transform: rotate(-10deg) translateX(-40px);
+  }
+  
+  .rotate2 {
+    transform: rotate(10deg) translateX(20px);
+  }
+  
+  .rotate3 {
+    transform: rotate(20deg) translateX(50px);
+  }
+  
+}
