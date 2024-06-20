@@ -10,6 +10,7 @@ import web1 from '../public/React-bitcoin.png'
 import web2 from '../public/gigger.jpg'
 import web3 from '../public/pixelPerfect.png'
 import web4 from '../public/imilmusic.png'
+import web5 from '../public/journal.png'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
     },
     {
       img: web2, url: 'https://gigerrs.onrender.com/', header: 'Fiverr clone', tech: 'Vue Vuex Node.js & MongoDb',
-      desc: 'A clone of Fiverr, the maketplace for gigs. It’s actually pixel-perfect too!    Disclaimer! (the site will load after 10 seconds, duo to the host bug).', sideHeader: 'Fiverr'
+      desc: 'A clone of Fiverr, the maketplace for gigs. It’s actually pixel-perfect too!    Disclaimer! (the site will load after 10 seconds, duo to host free plan).', sideHeader: 'Fiverr'
     },
     {
       img: web3, url: 'https://itzikil.github.io/Pixel-perfect-vue/', tech: 'Vue & Avocode', header: 'Pixel-perfect project',
@@ -47,6 +48,10 @@ export default function Home() {
     {
       img: web4, url: 'https://imilmusic.com/', tech: 'Vue & figma', header: 'Personal project for music students',
       desc: 'A project that I made for me and my wife to reach music students, worked with ux/ui designer and figma, the site has customize domain', sideHeader: 'Music-students'
+    },
+    {
+      img: web5, url: 'https://itzikil.github.io/journal-app-test/', tech: 'Vue Pwa Cloudinary', header: 'Real app for private teachers',
+      desc: '(In progress) An app I made for private teachers so they can manage their students in the best way', sideHeader: 'Journal'
     },
   ]
 
